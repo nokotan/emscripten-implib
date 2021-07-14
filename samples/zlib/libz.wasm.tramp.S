@@ -8,6 +8,7 @@
 
 .globl _libz_wasm_tramp_resolve
 .functype _libz_wasm_tramp_resolve (i32) -> (i32)
+
 //-----------------------------------------------
 //
 //	Copyright (c) 2021 kamenokonyokonyoko
@@ -20,12 +21,12 @@
 adler32_z:
   .functype adler32_z (i32, i32, i32) -> (i32)
 
-  i32.const 0
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 0
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -42,12 +43,12 @@ adler32_z:
 adler32:
   .functype adler32 (i32, i32, i32) -> (i32)
 
-  i32.const 1
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 1
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -64,13 +65,13 @@ adler32:
 adler32_combine64:
   .functype adler32_combine64 (i32, i32, i32, i32) -> (i32)
 
-  i32.const 2
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 2
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -87,14 +88,14 @@ adler32_combine64:
 compress2:
   .functype compress2 (i32, i32, i32, i32, i32) -> (i32)
 
-  i32.const 3
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
   local.get 4
+
+  i32.const 3
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32, i32) -> (i32)
   end_function
@@ -111,13 +112,13 @@ compress2:
 deflateInit_:
   .functype deflateInit_ (i32, i32, i32, i32) -> (i32)
 
-  i32.const 4
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 4
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -134,11 +135,11 @@ deflateInit_:
 deflate:
   .functype deflate (i32, i32) -> (i32)
 
-  i32.const 5
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 5
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -155,10 +156,10 @@ deflate:
 deflateEnd:
   .functype deflateEnd (i32) -> (i32)
 
+  local.get 0
+
   i32.const 6
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -175,13 +176,13 @@ deflateEnd:
 compress:
   .functype compress (i32, i32, i32, i32) -> (i32)
 
-  i32.const 7
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 7
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -198,10 +199,10 @@ compress:
 compressBound:
   .functype compressBound (i32) -> (i32)
 
+  local.get 0
+
   i32.const 8
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -218,10 +219,10 @@ compressBound:
 get_crc_table:
   .functype get_crc_table () -> (i32)
 
+
+
   i32.const 9
   call _libz_wasm_tramp_resolve
-
-
 
   call_indirect () -> (i32)
   end_function
@@ -238,12 +239,12 @@ get_crc_table:
 crc32_z:
   .functype crc32_z (i32, i32, i32) -> (i32)
 
-  i32.const 10
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 10
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -260,12 +261,12 @@ crc32_z:
 crc32:
   .functype crc32 (i32, i32, i32) -> (i32)
 
-  i32.const 11
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 11
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -282,13 +283,13 @@ crc32:
 crc32_combine64:
   .functype crc32_combine64 (i32, i32, i32, i32) -> (i32)
 
-  i32.const 12
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 12
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -305,9 +306,6 @@ crc32_combine64:
 deflateInit2_:
   .functype deflateInit2_ (i32, i32, i32, i32, i32, i32, i32, i32) -> (i32)
 
-  i32.const 13
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
@@ -316,6 +314,9 @@ deflateInit2_:
   local.get 5
   local.get 6
   local.get 7
+
+  i32.const 13
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32, i32, i32, i32, i32) -> (i32)
   end_function
@@ -332,12 +333,12 @@ deflateInit2_:
 zcalloc:
   .functype zcalloc (i32, i32, i32) -> (i32)
 
-  i32.const 14
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 14
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -354,11 +355,11 @@ zcalloc:
 zcfree:
   .functype zcfree (i32, i32) -> ()
 
-  i32.const 15
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 15
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> ()
   end_function
@@ -375,10 +376,10 @@ zcfree:
 deflateReset:
   .functype deflateReset (i32) -> (i32)
 
+  local.get 0
+
   i32.const 16
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -395,10 +396,10 @@ deflateReset:
 deflateResetKeep:
   .functype deflateResetKeep (i32) -> (i32)
 
+  local.get 0
+
   i32.const 17
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -415,12 +416,12 @@ deflateResetKeep:
 deflateSetDictionary:
   .functype deflateSetDictionary (i32, i32, i32) -> (i32)
 
-  i32.const 18
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 18
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -437,12 +438,12 @@ deflateSetDictionary:
 deflateGetDictionary:
   .functype deflateGetDictionary (i32, i32, i32) -> (i32)
 
-  i32.const 19
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 19
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -459,11 +460,11 @@ deflateGetDictionary:
 deflateSetHeader:
   .functype deflateSetHeader (i32, i32) -> (i32)
 
-  i32.const 20
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 20
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -480,12 +481,12 @@ deflateSetHeader:
 deflatePending:
   .functype deflatePending (i32, i32, i32) -> (i32)
 
-  i32.const 21
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 21
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -502,12 +503,12 @@ deflatePending:
 deflatePrime:
   .functype deflatePrime (i32, i32, i32) -> (i32)
 
-  i32.const 22
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 22
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -524,12 +525,12 @@ deflatePrime:
 deflateParams:
   .functype deflateParams (i32, i32, i32) -> (i32)
 
-  i32.const 23
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 23
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -546,14 +547,14 @@ deflateParams:
 deflateTune:
   .functype deflateTune (i32, i32, i32, i32, i32) -> (i32)
 
-  i32.const 24
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
   local.get 4
+
+  i32.const 24
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32, i32) -> (i32)
   end_function
@@ -570,11 +571,11 @@ deflateTune:
 deflateBound:
   .functype deflateBound (i32, i32) -> (i32)
 
-  i32.const 25
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 25
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -591,11 +592,11 @@ deflateBound:
 deflateCopy:
   .functype deflateCopy (i32, i32) -> (i32)
 
-  i32.const 26
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 26
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -612,10 +613,10 @@ deflateCopy:
 gzclose:
   .functype gzclose (i32) -> (i32)
 
+  local.get 0
+
   i32.const 27
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -632,10 +633,10 @@ gzclose:
 gzclose_r:
   .functype gzclose_r (i32) -> (i32)
 
+  local.get 0
+
   i32.const 28
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -652,10 +653,10 @@ gzclose_r:
 gzclose_w:
   .functype gzclose_w (i32) -> (i32)
 
+  local.get 0
+
   i32.const 29
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -672,11 +673,11 @@ gzclose_w:
 gzopen64:
   .functype gzopen64 (i32, i32) -> (i32)
 
-  i32.const 30
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 30
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -693,11 +694,11 @@ gzopen64:
 gzdopen:
   .functype gzdopen (i32, i32) -> (i32)
 
-  i32.const 31
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 31
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -714,11 +715,11 @@ gzdopen:
 gzbuffer:
   .functype gzbuffer (i32, i32) -> (i32)
 
-  i32.const 32
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 32
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -735,10 +736,10 @@ gzbuffer:
 gzrewind:
   .functype gzrewind (i32) -> (i32)
 
+  local.get 0
+
   i32.const 33
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -755,13 +756,13 @@ gzrewind:
 gzseek64:
   .functype gzseek64 (i32, i32, i32, i32) -> (i32)
 
-  i32.const 34
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 34
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -778,13 +779,13 @@ gzseek64:
 gzseek:
   .functype gzseek (i32, i32, i32, i32) -> (i32)
 
-  i32.const 35
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 35
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -801,10 +802,10 @@ gzseek:
 gztell:
   .functype gztell (i32) -> (i32)
 
+  local.get 0
+
   i32.const 36
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -821,10 +822,10 @@ gztell:
 gzoffset:
   .functype gzoffset (i32) -> (i32)
 
+  local.get 0
+
   i32.const 37
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -841,10 +842,10 @@ gzoffset:
 gzeof:
   .functype gzeof (i32) -> (i32)
 
+  local.get 0
+
   i32.const 38
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -861,11 +862,11 @@ gzeof:
 gzerror:
   .functype gzerror (i32, i32) -> (i32)
 
-  i32.const 39
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 39
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -882,10 +883,10 @@ gzerror:
 gzclearerr:
   .functype gzclearerr (i32) -> ()
 
+  local.get 0
+
   i32.const 40
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> ()
   end_function
@@ -902,12 +903,12 @@ gzclearerr:
 gzread:
   .functype gzread (i32, i32, i32) -> (i32)
 
-  i32.const 41
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 41
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -924,13 +925,13 @@ gzread:
 gzfread:
   .functype gzfread (i32, i32, i32, i32) -> (i32)
 
-  i32.const 42
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 42
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -947,10 +948,10 @@ gzfread:
 gzgetc_:
   .functype gzgetc_ (i32) -> (i32)
 
+  local.get 0
+
   i32.const 43
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -967,11 +968,11 @@ gzgetc_:
 gzungetc:
   .functype gzungetc (i32, i32) -> (i32)
 
-  i32.const 44
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 44
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -988,12 +989,12 @@ gzungetc:
 gzgets:
   .functype gzgets (i32, i32, i32) -> (i32)
 
-  i32.const 45
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 45
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -1010,10 +1011,10 @@ gzgets:
 gzdirect:
   .functype gzdirect (i32) -> (i32)
 
+  local.get 0
+
   i32.const 46
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -1030,13 +1031,13 @@ gzdirect:
 inflateInit2_:
   .functype inflateInit2_ (i32, i32, i32, i32) -> (i32)
 
-  i32.const 47
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 47
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -1053,10 +1054,10 @@ inflateInit2_:
 inflateReset:
   .functype inflateReset (i32) -> (i32)
 
+  local.get 0
+
   i32.const 48
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -1073,10 +1074,10 @@ inflateReset:
 inflateEnd:
   .functype inflateEnd (i32) -> (i32)
 
+  local.get 0
+
   i32.const 49
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -1093,11 +1094,11 @@ inflateEnd:
 inflate:
   .functype inflate (i32, i32) -> (i32)
 
-  i32.const 50
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 50
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -1114,12 +1115,12 @@ inflate:
 gzwrite:
   .functype gzwrite (i32, i32, i32) -> (i32)
 
-  i32.const 51
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 51
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -1136,13 +1137,13 @@ gzwrite:
 gzfwrite:
   .functype gzfwrite (i32, i32, i32, i32) -> (i32)
 
-  i32.const 52
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 52
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -1159,11 +1160,11 @@ gzfwrite:
 gzputc:
   .functype gzputc (i32, i32) -> (i32)
 
-  i32.const 53
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 53
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -1180,11 +1181,11 @@ gzputc:
 gzputs:
   .functype gzputs (i32, i32) -> (i32)
 
-  i32.const 54
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 54
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -1201,11 +1202,11 @@ gzputs:
 gzflush:
   .functype gzflush (i32, i32) -> (i32)
 
-  i32.const 55
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 55
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -1222,12 +1223,12 @@ gzflush:
 gzsetparams:
   .functype gzsetparams (i32, i32, i32) -> (i32)
 
-  i32.const 56
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 56
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -1244,10 +1245,10 @@ gzsetparams:
 inflateResetKeep:
   .functype inflateResetKeep (i32) -> (i32)
 
+  local.get 0
+
   i32.const 57
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -1264,11 +1265,11 @@ inflateResetKeep:
 inflateReset2:
   .functype inflateReset2 (i32, i32) -> (i32)
 
-  i32.const 58
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 58
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -1285,12 +1286,12 @@ inflateReset2:
 inflateInit_:
   .functype inflateInit_ (i32, i32, i32) -> (i32)
 
-  i32.const 59
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 59
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -1307,12 +1308,12 @@ inflateInit_:
 inflatePrime:
   .functype inflatePrime (i32, i32, i32) -> (i32)
 
-  i32.const 60
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 60
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -1329,12 +1330,12 @@ inflatePrime:
 inflateGetDictionary:
   .functype inflateGetDictionary (i32, i32, i32) -> (i32)
 
-  i32.const 61
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 61
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -1351,12 +1352,12 @@ inflateGetDictionary:
 inflateSetDictionary:
   .functype inflateSetDictionary (i32, i32, i32) -> (i32)
 
-  i32.const 62
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
+
+  i32.const 62
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32) -> (i32)
   end_function
@@ -1373,11 +1374,11 @@ inflateSetDictionary:
 inflateGetHeader:
   .functype inflateGetHeader (i32, i32) -> (i32)
 
-  i32.const 63
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 63
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -1394,10 +1395,10 @@ inflateGetHeader:
 inflateSync:
   .functype inflateSync (i32) -> (i32)
 
+  local.get 0
+
   i32.const 64
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -1414,10 +1415,10 @@ inflateSync:
 inflateSyncPoint:
   .functype inflateSyncPoint (i32) -> (i32)
 
+  local.get 0
+
   i32.const 65
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -1434,11 +1435,11 @@ inflateSyncPoint:
 inflateCopy:
   .functype inflateCopy (i32, i32) -> (i32)
 
-  i32.const 66
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 66
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -1455,11 +1456,11 @@ inflateCopy:
 inflateUndermine:
   .functype inflateUndermine (i32, i32) -> (i32)
 
-  i32.const 67
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 67
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -1476,11 +1477,11 @@ inflateUndermine:
 inflateValidate:
   .functype inflateValidate (i32, i32) -> (i32)
 
-  i32.const 68
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
+
+  i32.const 68
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32) -> (i32)
   end_function
@@ -1497,10 +1498,10 @@ inflateValidate:
 inflateMark:
   .functype inflateMark (i32) -> (i32)
 
+  local.get 0
+
   i32.const 69
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -1517,10 +1518,10 @@ inflateMark:
 inflateCodesUsed:
   .functype inflateCodesUsed (i32) -> (i32)
 
+  local.get 0
+
   i32.const 70
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -1537,14 +1538,14 @@ inflateCodesUsed:
 inflateBackInit_:
   .functype inflateBackInit_ (i32, i32, i32, i32, i32) -> (i32)
 
-  i32.const 71
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
   local.get 4
+
+  i32.const 71
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32, i32) -> (i32)
   end_function
@@ -1561,14 +1562,14 @@ inflateBackInit_:
 inflateBack:
   .functype inflateBack (i32, i32, i32, i32, i32) -> (i32)
 
-  i32.const 72
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
   local.get 4
+
+  i32.const 72
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32, i32) -> (i32)
   end_function
@@ -1585,10 +1586,10 @@ inflateBack:
 inflateBackEnd:
   .functype inflateBackEnd (i32) -> (i32)
 
+  local.get 0
+
   i32.const 73
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
@@ -1605,13 +1606,13 @@ inflateBackEnd:
 uncompress2:
   .functype uncompress2 (i32, i32, i32, i32) -> (i32)
 
-  i32.const 74
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 74
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -1628,13 +1629,13 @@ uncompress2:
 uncompress:
   .functype uncompress (i32, i32, i32, i32) -> (i32)
 
-  i32.const 75
-  call _libz_wasm_tramp_resolve
-
   local.get 0
   local.get 1
   local.get 2
   local.get 3
+
+  i32.const 75
+  call _libz_wasm_tramp_resolve
 
   call_indirect (i32, i32, i32, i32) -> (i32)
   end_function
@@ -1651,10 +1652,10 @@ uncompress:
 zlibVersion:
   .functype zlibVersion () -> (i32)
 
+
+
   i32.const 76
   call _libz_wasm_tramp_resolve
-
-
 
   call_indirect () -> (i32)
   end_function
@@ -1671,10 +1672,10 @@ zlibVersion:
 zlibCompileFlags:
   .functype zlibCompileFlags () -> (i32)
 
+
+
   i32.const 77
   call _libz_wasm_tramp_resolve
-
-
 
   call_indirect () -> (i32)
   end_function
@@ -1691,10 +1692,10 @@ zlibCompileFlags:
 zError:
   .functype zError (i32) -> (i32)
 
+  local.get 0
+
   i32.const 78
   call _libz_wasm_tramp_resolve
-
-  local.get 0
 
   call_indirect (i32) -> (i32)
   end_function
