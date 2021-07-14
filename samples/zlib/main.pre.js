@@ -1,9 +1,10 @@
 Module["preRun"] = [
     function()
     {
-        FS.mkdir("/working")
-        FS.mount(NODEFS, { root: '.' }, '/working');
+        if (ENVIRONMENT_IS_NODE)
+        {
+            FS.mkdir("/working")
+            FS.mount(NODEFS, { root: '.' }, '/working');
+        }
     }
 ];
-
-Module["dynamicLibraries"] = [ "libz.wasm" ]
