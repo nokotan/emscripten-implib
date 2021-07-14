@@ -1,0 +1,6 @@
+*.js
+*.wasm
+*.out.log
+*.init.c
+*.tramp.S
+!*.pre.js
