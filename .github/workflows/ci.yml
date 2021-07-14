@@ -21,4 +21,5 @@ jobs:
       - name: Test
         working-directory: tests/basic
         run: |
+          chmod +x run.sh
           CC=emcc CFLAGS="" ./run.sh
