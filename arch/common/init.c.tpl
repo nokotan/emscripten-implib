@@ -30,7 +30,9 @@ static const char *const sym_names[] = {
   0
 };
 
-void *_${lib_suffix}_tramp_table[$table_size];
+void *_${lib_suffix}_tramp_table[$table_size] = { 0 };
+
+void *_${lib_suffix}_module = 0;
 
 // Can be sped up by manually parsing library symtab...
 void* _${lib_suffix}_tramp_resolve(int i) {
@@ -40,11 +42,13 @@ void* _${lib_suffix}_tramp_resolve(int i) {
 
   if (_${lib_suffix}_tramp_table[i] == 0)
   {
-    void *h = 0;
-    h = dlopen("$load_name", RTLD_LAZY | RTLD_GLOBAL);
+    if (_${lib_suffix}_module == 0)
+    {
+      _${lib_suffix}_module = dlopen("$load_name", RTLD_LAZY | RTLD_GLOBAL);
+    }
 
     // Dlsym is thread-safe so don't need to protect it.
-    _${lib_suffix}_tramp_table[i] = dlsym(h, sym_names[i]);
+    _${lib_suffix}_tramp_table[i] = dlsym(_${lib_suffix}_module, sym_names[i]);
     CHECK(_${lib_suffix}_tramp_table[i], "failed to resolve symbol '%s'", sym_names[i]);
   }
 
