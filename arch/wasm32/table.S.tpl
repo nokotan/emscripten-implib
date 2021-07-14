@@ -6,6 +6,6 @@
 //
 //-----------------------------------------------
 
-.globl _libz_wasm_tramp_resolve
-.functype _libz_wasm_tramp_resolve (i32) -> (i32)
+.globl _${lib_suffix}_tramp_resolve
+.functype _${lib_suffix}_tramp_resolve (i32) -> (i32)
 

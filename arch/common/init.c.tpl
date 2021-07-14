@@ -32,8 +32,8 @@ extern "C" {
 #define NO_DLOPEN $no_dlopen
 #define LAZY_LOAD $lazy_load
 
-static void *lib_handle;
-static int is_lib_loading;
+static void *lib_handle = 0;
+static int is_lib_loading = 0;
 
 static void *load_library() {
   if(lib_handle)

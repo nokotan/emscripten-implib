@@ -82,7 +82,7 @@ def collect_syms(f):
   syms = []
   syms_set = set()
 
-  excluded = [ '__wasm_call_ctors' ]
+  excluded = [ '__wasm_call_ctors', '__wasm_apply_data_relocs' ]
 
   for line in out.splitlines():
     line = line.strip()
