@@ -12,7 +12,9 @@ import os.path
 import re
 import argparse
 import string
+import tempfile
 from tools import wasmtool 
+from tools import util
 
 me = os.path.basename(__file__)
 root = os.path.dirname(__file__)
@@ -92,6 +94,12 @@ Examples:
   parser.add_argument('--outdir', '-o',
                       help="Path to create wrapper at",
                       default='./')
+  parser.add_argument('--emit-archive',
+                      help="",
+                      dest='emit_ar', action='store_true', default=True)
+  parser.add_argument('--emit-source',
+                      help="",
+                      dest='emit_ar', action='store_false')
   args = parser.parse_args()
 
   input_name = args.library
@@ -166,8 +174,6 @@ Examples:
           push_stack=sym["push_stack"],
           number=i)
         f.write(tramp_text)
-  
-  generate_assembly_code('%s.tramp.S' % suffix)
 
   # Generate C code
   def generate_c_code(init_file):
@@ -189,7 +195,24 @@ Examples:
           )
         f.write(init_text)
 
-  generate_c_code('%s.init.c' % suffix)
+  if args.emit_ar:
+    with tempfile.TemporaryDirectory() as dname:
+      tramp_file = os.path.join(dname, '%s.tramp.S' % suffix)
+      init_file = os.path.join(dname, '%s.init.c' % suffix)
+      
+      tramp_object_file = os.path.join(dname, '%s.tramp.o' % suffix)
+      init_object_file = os.path.join(dname, '%s.init.o' % suffix)
+      ar_file = '%s.a' % suffix
+
+      generate_assembly_code(tramp_file)
+      generate_c_code(init_file)
+
+      util.run(['emcc', '-c', '-o', tramp_object_file, tramp_file, '-s', 'SIDE_MODULE=1']) 
+      util.run(['emcc', '-c', '-o', init_object_file, init_file, '-s', 'SIDE_MODULE=1']) 
+      util.run(['emar', 'rcs', ar_file, tramp_object_file, init_object_file]) 
+  else:
+    generate_assembly_code('%s.tramp.S' % suffix)
+    generate_c_code('%s.init.c' % suffix)
 
 
 
