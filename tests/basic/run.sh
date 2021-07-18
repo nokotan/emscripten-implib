@@ -33,7 +33,7 @@ for ADD_CFLAGS in ''; do
     python3 ../../implib-gen.py -q libinterposed.wasm $ADD_GFLAGS
 
     # Build app
-    $CC $CFLAGS $ADD_CFLAGS -o a.js -s MAIN_MODULE=2 -s EXPORTED_FUNCTIONS="['_main','___small_printf','_iprintf']" --pre-js main.pre.js main.c test.c libinterposed.wasm.tramp.S libinterposed.wasm.init.c
+    $CC $CFLAGS $ADD_CFLAGS -o a.js -s MAIN_MODULE=2 -s EXPORTED_FUNCTIONS="['_main','___small_printf','_iprintf']" --pre-js main.pre.js main.c test.c libinterposed.wasm.a
 
     node ./a.js > a.out.log
     diff test.ref a.out.log
