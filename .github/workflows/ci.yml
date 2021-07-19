@@ -18,8 +18,14 @@ jobs:
           sudo apt update
           sudo apt install wabt
 
-      - name: Test
+      - name: Test Basic
         working-directory: tests/basic
+        run: |
+          chmod +x run.sh
+          CC=emcc CFLAGS="" ./run.sh
+
+      - name: Test Exceptions
+        working-directory: tests/exceptions
         run: |
           chmod +x run.sh
           CC=emcc CFLAGS="" ./run.sh
