@@ -2,6 +2,8 @@ import os
 import sys
 import subprocess
 
+me = os.path.basename(__file__)
+
 def run(args, input=''):
   """Runs external program and aborts on error."""
   env = os.environ.copy()

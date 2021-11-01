@@ -207,8 +207,8 @@ Examples:
       generate_assembly_code(tramp_file)
       generate_c_code(init_file)
 
-      util.run(['emcc', '-c', '-o', tramp_object_file, tramp_file, '-s', 'SIDE_MODULE=1']) 
-      util.run(['emcc', '-c', '-o', init_object_file, init_file, '-s', 'SIDE_MODULE=1']) 
+      util.run(['emcc', '-c', '-o', tramp_object_file, tramp_file, '-s', 'SIDE_MODULE=2']) 
+      util.run(['emcc', '-c', '-o', init_object_file, init_file, '-s', 'SIDE_MODULE=2']) 
       util.run(['emar', 'rcs', ar_file, tramp_object_file, init_object_file]) 
   else:
     generate_assembly_code('%s.tramp.S' % suffix)

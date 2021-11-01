@@ -75,7 +75,7 @@ static const char *const sym_names[] = {
   0
 };
 
-void *_${lib_suffix}_tramp_table[$table_size] = { 0 };
+static void *_${lib_suffix}_tramp_table[$table_size] = { 0 };
 
 // Can be sped up by manually parsing library symtab...
 void* _${lib_suffix}_tramp_resolve(int i) {
