@@ -69,19 +69,11 @@ static void __attribute__((destructor)) unload_lib() {
     dlclose(lib_handle);
 }
 
-// TODO: convert to single 0-separated string
-static const char *const sym_names[] = {
-  $sym_names
-  0
-};
-
 static void *_${lib_suffix}_tramp_table[$table_size] = { 0 };
 
 // Can be sped up by manually parsing library symtab...
-void* _${lib_suffix}_tramp_resolve(int i) {
-  assert((unsigned)i + 1 < sizeof(sym_names) / sizeof(sym_names[0]));
-
-  CHECK(!is_lib_loading, "library function '%s' called during library load", sym_names[i]);
+void* _${lib_suffix}_tramp_resolve(const char* sym_name, int i) {
+  CHECK(!is_lib_loading, "library function '%s' called during library load", sym_name);
 
   if (_${lib_suffix}_tramp_table[i] == 0)
   {
@@ -94,22 +86,15 @@ void* _${lib_suffix}_tramp_resolve(int i) {
     h = load_library();
 #else
     h = lib_handle;
-    CHECK(h, "failed to resolve symbol '%s', library failed to load", sym_names[i]);
+    CHECK(h, "failed to resolve symbol '%s', library failed to load", sym_name);
 #endif
 
     // Dlsym is thread-safe so don't need to protect it.
-    _${lib_suffix}_tramp_table[i] = dlsym(h, sym_names[i]);
-    CHECK(_${lib_suffix}_tramp_table[i], "failed to resolve symbol '%s'", sym_names[i]);
+    _${lib_suffix}_tramp_table[i] = dlsym(h, sym_name);
+    CHECK(_${lib_suffix}_tramp_table[i], "failed to resolve symbol '%s'", sym_name);
   }
 
   return _${lib_suffix}_tramp_table[i];
-}
-
-// Helper for user to resolve all symbols
-void _${lib_suffix}_tramp_resolve_all(void) {
-  size_t i;
-  for(i = 0; i + 1 < sizeof(sym_names) / sizeof(sym_names[0]); ++i)
-    _${lib_suffix}_tramp_resolve(i);
 }
 
 #ifdef __cplusplus

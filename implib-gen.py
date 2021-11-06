@@ -171,6 +171,7 @@ Examples:
           sym=args.symbol_prefix + sym["name"],
           sig=sym["sig"],
           sigindex=sym["sigindex"],
+          sym_len=len(args.symbol_prefix + sym["name"])+1,
           push_stack=sym["push_stack"],
           number=i)
         f.write(tramp_text)
@@ -179,10 +180,6 @@ Examples:
   def generate_c_code(init_file):
     with open(os.path.join(outdir, init_file), 'w') as f:
       with open(os.path.join(root, 'arch/common/init.c.tpl'), 'r') as t:
-        if syms:
-          sym_names = ',\n  '.join('"%s"' % sym['name'] for sym in syms) + ','
-        else:
-          sym_names = ''
         init_text = string.Template(t.read()).substitute(
           lib_suffix=lib_suffix,
           load_name=load_name,
@@ -190,7 +187,6 @@ Examples:
           has_dlopen_callback=int(bool(dlopen_callback)),
           no_dlopen=not int(dlopen),
           lazy_load=int(lazy_load),
-          sym_names=sym_names,
           table_size=(len(syms) + 1)
           )
         f.write(init_text)

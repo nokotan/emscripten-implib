@@ -7,5 +7,5 @@
 //-----------------------------------------------
 
 .globl _${lib_suffix}_tramp_resolve
-.functype _${lib_suffix}_tramp_resolve (i32) -> (i32)
+.functype _${lib_suffix}_tramp_resolve (i32, i32) -> (i32)
 
